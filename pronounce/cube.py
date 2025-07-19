@@ -1,5 +1,4 @@
 import re
-import unicodedata
 from typing import Literal
 
 import requests
@@ -7,37 +6,15 @@ from bs4 import BeautifulSoup
 
 CUBE_URL = "http://seas3.elte.hu/cube/index.pl"
 
-UNICODE_SPACES = [
-    "\u0020",  # SPACE
-    "\u00A0",  # NO-BREAK SPACE
-    "\u1680",  # OGHAM SPACE MARK
-    "\u2000",  # EN QUAD
-    "\u2001",  # EM QUAD
-    "\u2002",  # EN SPACE
-    "\u2003",  # EM SPACE
-    "\u2004",  # THREE-PER-EM SPACE
-    "\u2005",  # FOUR-PER-EM SPACE
-    "\u2006",  # SIX-PER-EM SPACE
-    "\u2007",  # FIGURE SPACE
-    "\u2008",  # PUNCTUATION SPACE
-    "\u2009",  # THIN SPACE
-    "\u200A",  # HAIR SPACE
-    "\u202F",  # NARROW NO-BREAK SPACE ← used in CUBE
-    "\u205F",  # MEDIUM MATHEMATICAL SPACE
-    "\u3000",  # IDEOGRAPHIC SPACE
-]
-
-SPACE_REGEX = "[" + "".join(re.escape(ch) for ch in UNICODE_SPACES) + r"\s" + "]"
-
 UNICODE_NORMALIZATION_FORM: Literal["NFD"] = "NFD"
 
 
-def normalize_ipa(text: str) -> str:
-    no_spaces = re.sub(SPACE_REGEX, "", text)
-    decomposed = unicodedata.normalize(UNICODE_NORMALIZATION_FORM, no_spaces)
-    basic = "".join(decomposed)
-    replaced = basic.replace("ʧ", "tʃ").replace("ʤ", "dʒ")
-    return replaced
+def touch_up_ipa_string(text: str) -> str:
+    return (
+        re.sub(r"[\u00A0\u1680\u2000-\u200B\u202F\u205F\u3000]", " ", text)
+        .replace("ʧ", "tʃ")
+        .replace("ʤ", "dʒ")
+    )
 
 
 def fetch_cube_pronunciations(word: str, full_word: bool) -> list[tuple[str, str]]:
@@ -68,7 +45,7 @@ def fetch_cube_pronunciations(word: str, full_word: bool) -> list[tuple[str, str
                 ipa_span = ipa_cell.find("span", class_="ipa")
                 if ipa_span:
                     raw_ipa = ipa_span.get_text()
-                    cleaned_ipa = normalize_ipa(raw_ipa)
+                    cleaned_ipa = touch_up_ipa_string(raw_ipa)
                     results.append((word_text, cleaned_ipa))
             case _:
                 continue
