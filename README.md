@@ -11,24 +11,34 @@ understand phonetics and phonology.
 The CUBE (Current British English) dictionary offers up-to-date, research-backed transcriptions for thousands of English
 words. This CLI tool lets you query it right from your terminal.
 
-If you're curious about why the CUBE dictionary uses forms like `/ij/` instead of the traditional `/iː/`, I highly 
+If you're curious about why the CUBE dictionary uses forms like `/ij/` instead of the traditional `/iː/`, I highly
 recommend watching [this video](https://www.youtube.com/watch?v=gtnlGH055TA) to understand the reasoning behind it.
-
-## Usage
-
-![screenshot](docs/resources/pronounce.usage.png)
 
 ## Development
 
 This project uses [uv](https://github.com/astral-sh/uv) for dependency management and packaging. All dependencies and
 script entry points are managed through `pyproject.toml`.
 
-Common `uv` commands:
+You can set up your development environment using the following script:
 
 ```bash
-uv venv                                   # create virtual environment
-uv add requests                           # add libraries
-uv lock                                   # lock versions
-uv sync                                   # install from lock
-.venv/bin/python -m pronounce.cli coerce  # run manually
+scripts/setup.sh
+```
+
+## Usage
+
+```terminal
+$ scripts/run.sh thoughtful 
+
+✅ Looked up thoughtful in 1.8s
+         CUBE Pronunciations          
+┏━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ # ┃ Word           ┃ Pronunciation ┃
+┡━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ 1 │ thoughtful     │ θóːtfəl       │
+├───┼────────────────┼───────────────┤
+│ 2 │ thoughtfully   │ θóːtfəlɪj     │
+├───┼────────────────┼───────────────┤
+│ 3 │ thoughtfulness │ θóːtfəlnəs    │
+└───┴────────────────┴───────────────┘
 ```

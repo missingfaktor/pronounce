@@ -1,9 +1,9 @@
-import sys
 import threading
 import time
 from contextlib import contextmanager
 from typing import Any, Generator
 
+import click
 from rich.console import Console
 from rich.live import Live
 from rich.table import Table
@@ -55,15 +55,10 @@ def render_table(entries) -> None:
     console.print(table)
 
 
-def main() -> None:
+@click.command()
+@click.argument("word")
+def run(word: str) -> None:
     console = Console()
-    args = sys.argv[1:]
-
-    if len(sys.argv) < 2:
-        console.print("[red]Usage:[/] pronounce [bold]WORD[/]")
-        raise SystemExit(1)
-
-    word = args[0]
 
     with loading(word, console):
         results = fetch_cube_pronunciations(word)
