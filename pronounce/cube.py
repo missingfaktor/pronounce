@@ -38,7 +38,7 @@ def normalize_ipa(text: str) -> str:
     return "".join(decomposed)
 
 
-def fetch_cube_pronunciations(word: str) -> list[tuple[str, str]]:
+def fetch_cube_pronunciations(word: str, full_word: bool) -> list[tuple[str, str]]:
     params = {
         "s": word,  # The word to search
         "invr": "on",  # Use /ɹ/ instead of /r/
@@ -46,6 +46,9 @@ def fetch_cube_pronunciations(word: str) -> list[tuple[str, str]]:
         "thop": "on",  # Show aspiration
         "trick": "on",  # Palatalise 'tr', 'dr' etc
     }
+
+    if full_word:
+        params["fullw"] = "on"
 
     response = requests.get(CUBE_URL, params=params)
     response.raise_for_status()

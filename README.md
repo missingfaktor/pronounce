@@ -27,7 +27,7 @@ scripts/setup.sh
 
 ## Usage
 
-```terminal
+```
 $ scripts/run.sh thoughtful 
 
 ✅ Looked up thoughtful in 1.8s
@@ -41,4 +41,16 @@ $ scripts/run.sh thoughtful
 ├───┼────────────────┼───────────────┤
 │ 3 │ thoughtfulness │ θóːtfəlnəs    │
 └───┴────────────────┴───────────────┘
+```
+
+```
+$scripts/run.sh going --full-word
+
+✅ Looked up going in 1.5s
+     CUBE Pronunciations     
+┏━━━┳━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ # ┃ Word  ┃ Pronunciation ┃
+┡━━━╇━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ 1 │ going │ gə́wɪŋ         │
+└───┴───────┴───────────────┘
 ```
