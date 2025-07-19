@@ -1,0 +1,35 @@
+# pronounce
+
+A simple command-line utility for looking up modern English pronunciations using Geoff
+Lindsey’s [CUBE dictionary](http://seas3.elte.hu/cube/index.pl?s=cube&grammar=1&fullw=1).
+
+I'm a big admirer of Geoff Lindsey’s work on updating how English pronunciation is analysed and taught. His [YouTube
+channel](https://www.youtube.com/@DrGeoffLindsey) and his
+book [English After RP](https://www.englishspeechservices.com/english-after-rp/) have been hugely influential in how I
+understand phonetics and phonology.
+
+The CUBE (Current British English) dictionary offers up-to-date, research-backed transcriptions for thousands of English
+words. This CLI tool lets you query it right from your terminal.
+
+If the transcription style looks unfamiliar — for instance, if you see `/ij/` instead of the traditional `/iː/` — I
+highly recommend watching [this video](https://www.youtube.com/watch?v=gtnlGH055TA) to understand the reasoning behind
+it.
+
+## Usage
+
+![screenshot](docs/resources/pronounce.usage.png)
+
+## Development
+
+This project uses [uv](https://github.com/astral-sh/uv) for dependency management and packaging. All dependencies and
+script entry points are managed through `pyproject.toml`.
+
+Common `uv` commands:
+
+```bash
+uv venv                                   # create virtual environment
+uv add requests                           # add libraries
+uv lock                                   # lock versions
+uv sync                                   # install from lock
+.venv/bin/python -m pronounce.cli coerce  # run manually
+```

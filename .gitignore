@@ -1,0 +1,30 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Editor junk
+*.swp
+*.swo
+*.bak
+*.tmp
+*~
+
+# macOS
+.DS_Store
+
+# JetBrains IDE (e.g. PyCharm)
+.idea/
+
+# uv and build artefacts
+pronounce.egg-info/
+build/
+dist/
+
+# Logs or runtime data
+*.log
