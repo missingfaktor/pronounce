@@ -35,7 +35,9 @@ UNICODE_NORMALIZATION_FORM: Literal["NFD"] = "NFD"
 def normalize_ipa(text: str) -> str:
     no_spaces = re.sub(SPACE_REGEX, "", text)
     decomposed = unicodedata.normalize(UNICODE_NORMALIZATION_FORM, no_spaces)
-    return "".join(decomposed)
+    basic = "".join(decomposed)
+    replaced = basic.replace("ʧ", "tʃ").replace("ʤ", "dʒ")
+    return replaced
 
 
 def fetch_cube_pronunciations(word: str, full_word: bool) -> list[tuple[str, str]]:
