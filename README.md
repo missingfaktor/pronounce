@@ -28,59 +28,40 @@ scripts/setup.sh
 ## Usage
 
 ```
-$ scripts/run.sh pontif                
+> pronounce --help
 
-✅ Looked up pontif in 1.5s
-                CUBE Pronunciations                 
-┏━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃  # ┃ Word          ┃ Pronunciation               ┃
-┡━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│  1 │ pontifex      │ pʰ ɔ́ n t ɪ f ɛ k s          │
-├────┼───────────────┼─────────────────────────────┤
-│  2 │ pontiff       │ pʰ ɔ́ n t ɪ f                │
-├────┼───────────────┼─────────────────────────────┤
-│  3 │ pontiffs      │ pʰ ɔ́ n t ɪ f s              │
-├────┼───────────────┼─────────────────────────────┤
-│  4 │ pontifical    │ pʰ ɔ n tʰ ɪ́ f ɪ k ə l       │
-├────┼───────────────┼─────────────────────────────┤
-│  5 │ pontificals   │ pʰ ɔ n tʰ ɪ́ f ɪ k ə l z     │
-├────┼───────────────┼─────────────────────────────┤
-│  6 │ pontificate   │ pʰ ɔ n tʰ ɪ́ f ɪ kʰ ɛj t     │
-├────┼───────────────┼─────────────────────────────┤
-│  7 │ pontificate   │ pʰ ɔ n tʰ ɪ́ f ɪ k ə t       │
-├────┼───────────────┼─────────────────────────────┤
-│  8 │ pontificated  │ pʰ ɔ n tʰ ɪ́ f ɪ kʰ ɛj t ɪ d │
-├────┼───────────────┼─────────────────────────────┤
-│  9 │ pontificates  │ pʰ ɔ n tʰ ɪ́ f ɪ kʰ ɛj t s   │
-├────┼───────────────┼─────────────────────────────┤
-│ 10 │ pontificates  │ pʰ ɔ n tʰ ɪ́ f ɪ k ə t s     │
-├────┼───────────────┼─────────────────────────────┤
-│ 11 │ pontificating │ pʰ ɔ n tʰ ɪ́ f ɪ kʰ ɛj t ɪ ŋ │
-├────┼───────────────┼─────────────────────────────┤
-│ 12 │ pontification │ pʰ ɔ n tʰ ɪ́ f ɪ kʰ ɛ́j ʃ ə n │
-└────┴───────────────┴─────────────────────────────┘
+Usage: python -m pronounce.main [OPTIONS] WORD
+
+Options:
+  -n, --include_non_full_word_matches
+                                  Include non full word matches
+  --help                          Show this message and exit.
 
 
-$ scripts/run.sh --full-word going
+> pronounce drawing
 
-✅ Looked up going in 1.5s
-     CUBE Pronunciations     
-┏━━━┳━━━━━━━┳━━━━━━━━━━━━━━━┓
-┃ # ┃ Word  ┃ Pronunciation ┃
-┡━━━╇━━━━━━━╇━━━━━━━━━━━━━━━┩
-│ 1 │ going │ g ə́w ɪ ŋ      │
-└───┴───────┴───────────────┘
+✅ Looked up drawing in 1.5s
+      CUBE Pronunciations      
+┏━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ # ┃ Word    ┃ Pronunciation ┃
+┡━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ 1 │ drawing │ dʒ ɹ óː ɹ ɪ ŋ │
+└───┴─────────┴───────────────┘
 
 
-$ scripts/run.sh --full-word train
+> pronounce -n whom
 
-✅ Looked up train in 1.8s
-             CUBE Pronunciations             
-┏━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ # ┃ Word        ┃ Pronunciation           ┃
-┡━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ 1 │ gravy train │ g ɹ ɛ́j v ɪj   tʃ ɹ ɛj n │
-├───┼─────────────┼─────────────────────────┤
-│ 2 │ train       │ tʃ ɹ ɛ́j n               │
-└───┴─────────────┴─────────────────────────┘
+✅ Looked up whom in 1.4s
+         CUBE Pronunciations          
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃ # ┃ Word       ┃ Pronunciation     ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+│ 1 │ whom       │ h ʉ́w m            │
+├───┼────────────┼───────────────────┤
+│ 2 │ whomever   │ h ʉw m ɛ́ v ə      │
+├───┼────────────┼───────────────────┤
+│ 3 │ whomsoever │ h ʉ́w m s əw ɛ́ v ə │
+├───┼────────────┼───────────────────┤
+│ 4 │ whomst     │ h ʉ́w m s d        │
+└───┴────────────┴───────────────────┘
 ```

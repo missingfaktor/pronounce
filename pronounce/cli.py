@@ -57,12 +57,12 @@ def render_table(entries) -> None:
 
 @click.command()
 @click.argument("word")
-@click.option("--full-word", is_flag=True, help="Search for full word matches only.")
-def run(word: str, full_word: bool) -> None:
+@click.option("--include_non_full_word_matches", "-n", is_flag=True, help="Include non full word matches")
+def run(word: str, include_non_full_word_matches: bool) -> None:
     console = Console()
 
     with loading(word, console):
-        results = fetch_cube_pronunciations(word, full_word=full_word)
+        results = fetch_cube_pronunciations(word, include_non_full_word_matches)
 
     if results:
         render_table(results)

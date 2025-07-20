@@ -17,17 +17,18 @@ def touch_up_ipa_string(text: str) -> str:
     )
 
 
-def fetch_cube_pronunciations(word: str, full_word: bool) -> list[tuple[str, str]]:
+def fetch_cube_pronunciations(word: str, include_non_full_word_matches: bool) -> list[tuple[str, str]]:
     params = {
         "s": word,  # The word to search
         "invr": "on",  # Use /ɹ/ instead of /r/
         "asp": "on",  # Be explicit about lenition after /s/
         "thop": "on",  # Show aspiration
         "trick": "on",  # Palatalise 'tr', 'dr' etc
+        "fullw": "on",  # Include full word matches only
     }
 
-    if full_word:
-        params["fullw"] = "on"
+    if include_non_full_word_matches:
+        del params["fullw"]
 
     response = requests.get(CUBE_URL, params=params)
     response.raise_for_status()
