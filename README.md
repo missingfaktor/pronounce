@@ -11,7 +11,7 @@ understand phonetics and phonology.
 The CUBE (Current British English) dictionary offers up-to-date, research-backed transcriptions for thousands of English
 words. This CLI tool lets you query it right from your terminal.
 
-If you're curious about why the CUBE dictionary uses forms like `/ij/` instead of the traditional `/iː/`, I highly
+If you're curious about why the CUBE dictionary uses forms like `/ɪj/` instead of the traditional `/iː/`, I highly
 recommend watching [this video](https://www.youtube.com/watch?v=gtnlGH055TA) to understand the reasoning behind it.
 
 ## Development
